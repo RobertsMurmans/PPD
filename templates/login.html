@@ -1,0 +1,44 @@
+{%extends 'index.html'%}
+
+{% block title %}Login{% endblock %}
+
+
+{% block content %}
+    
+    <form id="login" method="post">
+
+        <div>
+            <h1 class="title">Sign into your account with your ID</h1>
+        </div>
+
+        <div class="inputdiv">
+
+            <p class="inputtext">
+                Input your ID here:
+            </p> 
+
+            <input type="user_ID" id="user_ID" name="user_ID" class="inputfield">
+
+        </div>
+
+        <div class="inputdiv">
+
+            <p class="inputtext">
+                Input your password here:
+            </p> 
+            
+            <input type="password" id="password" name="password" class="inputfield">
+
+        </div>
+
+        <br>
+
+        <div class="inputdiv">
+
+            <input class="submitLogin" type="submit" value="Log In">
+        
+        </div>
+
+    </form>
+
+{% endblock %}

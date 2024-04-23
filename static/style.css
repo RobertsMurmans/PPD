@@ -1,0 +1,39 @@
+body {
+    background-color: rgb(28, 22, 71);
+}
+
+* {
+    font-family: sans-serif;
+    color: cyan;
+}
+
+.inputdiv {
+    text-align: center;
+    width: 300px;
+    height: 55px;
+}
+
+.inputtext {
+    text-align: center;
+    justify-content: center;
+    width: 300px;
+    height: 10px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.inputfield {
+    background-color: rgb(10, 5, 44);
+    width: 300px;
+    height: 25px;
+    justify-content: center;
+    padding: 10px;
+}
+
+.submitLogin {
+    background-color: transparent;
+    width: 300px;
+    height: 30px;
+    justify-content: center;
+    text-align: center;
+}
