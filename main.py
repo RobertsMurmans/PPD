@@ -12,7 +12,7 @@ def Index_page():
     if 'login' not in session or session['login'] == False:
         session['login'] = False
         return redirect('/login')
-    return render_template('home.html')
+    return redirect('/homepage')
 
 
 @app.route('/login', methods=('GET', 'POST'))
@@ -28,5 +28,9 @@ def Login_page():
             return redirect('/')
     return render_template('login.html')
 
+
+@app.route('/homepage', methods=('GET', 'POST'))
+def Homepage():
+    return render_template('home.html')
 
 app.run(host='0.0.0.0', port=81)
