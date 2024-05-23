@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, session, redirect, jsonify, json
 from data import *
 import os
-import mysql.connector
+from dotenv import load_dotenv
 
-
+load_dotenv()
 
 app = Flask('app')
-app.secret_key = "poop"
+app.secret_key = os.getenv('Key')
 
 
 @app.route('/')
