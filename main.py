@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, session, redirect, jsonify, json
 from data import *
 import os
+import mysql.connector
+
 
 
 app = Flask('app')
@@ -20,10 +22,9 @@ def Login_page():
     if request.method == 'POST':
         userID = request.form['user_ID']
         password = request.form['password']
-        print(userID, " and ", password)
-        if checkIfOnServer(userID, password):
+        if confirmPass(userID, password):
             session['userID'] = userID
-            session['password'] = password
+            session['id'] = 1
             session['login'] = True
             return redirect('/')
     return render_template('login.html')
@@ -32,5 +33,6 @@ def Login_page():
 @app.route('/homepage', methods=('GET', 'POST'))
 def Homepage():
     return render_template('home.html')
+
 
 app.run(host='0.0.0.0', port=81)
