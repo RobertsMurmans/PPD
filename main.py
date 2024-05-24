@@ -26,8 +26,9 @@ def Login_page():
             session['userID'] = userID
             session['id'] = 1
             session['login'] = True
-            return redirect('/')
-    return render_template('login.html')
+            return redirect('/homepage')
+        return render_template('login.html', fail = True)
+    return render_template('login.html', fail = False)
 
 
 @app.route('/homepage', methods=('GET', 'POST'))
