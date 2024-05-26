@@ -20,11 +20,11 @@ def Index_page():
 @app.route('/login', methods=('GET', 'POST'))
 def Login_page():
     if request.method == 'POST':
-        userID = request.form['user_ID']
+        username = request.form['user_ID']
         password = request.form['password']
-        if confirmPass(userID, password):
-            session['userID'] = userID
-            session['id'] = 1
+        if confirmPass(username, password):
+            session['username'] = username
+            session['id'] = getID(username)
             session['login'] = True
             return redirect('/homepage')
         return render_template('login.html', fail = True)

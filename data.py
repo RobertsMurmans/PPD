@@ -19,19 +19,40 @@ def connectToSQL():
 
 def confirmPass(username, password):
     con = connectToSQL()
-    print("connected")
     cur = con.cursor()
 
     cur.execute("   SELECT Password FROM Users WHERE Username = %s   ", (username, ))
-    con.commit()
 
     Password = cur.fetchall()
 
+    if Password == None:
+        print(username, " does not exists")
+        return False
+    
+    Password = Password[0][0]
+
     cur.close()
+    con.commit()
     con.close()
 
+    print("With password tried: ", password, " and ", Password)
+    
     if password == Password:
         print("Connection success from", username)
         return True
     print("Connection fail from", username)
     return False
+
+def getID(username):
+    con = connectToSQL()
+    cur = con.cursor()
+
+    cur.execute("   SELECT UserID FROM Users Where Username = %s   ", (username, ))
+
+    userID = cur.fetchone()
+
+    cur.close()
+    con.commit()
+    con.close()
+
+    return userID

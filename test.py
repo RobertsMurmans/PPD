@@ -17,9 +17,9 @@ print("conected")
 cur = connection.cursor()
 
 cur.execute("SELECT * FROM Users")
-connection.commit()
 
 print(cur.fetchall())
 
 cur.close()
+connection.commit()
 connection.close()
