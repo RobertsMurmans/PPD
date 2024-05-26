@@ -4,7 +4,7 @@
 
 
 {% block content %}
-    
+        
     <form id="login" method="post">
 
         <div>
@@ -26,7 +26,7 @@
             <p class="inputtext">
                 Input your password here:
             </p> 
-            
+                
             <input type="password" id="password" name="password" class="inputfield">
 
         </div>
@@ -34,21 +34,19 @@
         {% if fail == True: %}
             <div>
 
-                <p class="title">
+                <p class="inputtext">
                     Wrong data, try again
                 </p>
 
             </div>
         {% endif %}
 
-        <br>
 
         <div class="inputdiv">
 
             <input class="submitLogin" type="submit" value="Log In">
-        
+            
         </div>
 
     </form>
-
 {% endblock %}

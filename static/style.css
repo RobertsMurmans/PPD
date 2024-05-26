@@ -1,6 +1,24 @@
 body {
     background-color: rgb(28, 22, 71);
-    align-items: center;
+    align-content: center;
+    flex: content;
+    flex-basis: 20%;
+}
+
+.navbar {
+    display: flex;
+    width: 100%;
+    height: 55px;
+    border-bottom: 5px;
+    border-color: darkblue;
+}
+
+.bodydiv {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 
 * {
@@ -9,25 +27,22 @@ body {
 }
 
 .inputdiv {
-    text-align: center;
-    width: 300px;
-    height: 55px;
+    display: grid;
+    width: auto;
+    height: auto;
+    padding: 10px;
 }
 
 .inputtext {
     text-align: center;
-    justify-content: center;
     width: 300px;
     height: 10px;
-    padding: 10px;
-    padding-bottom: 0px;
 }
 
 .inputfield {
     background-color: rgb(10, 5, 44);
     width: 300px;
     height: 25px;
-    justify-content: center;
     padding: 10px;
 }
 
@@ -35,6 +50,9 @@ body {
     background-color: transparent;
     width: 300px;
     height: 30px;
-    justify-content: center;
     text-align: center;
+}
+
+.submitLogin:hover {
+    background-color: rgb(10, 5, 44);
 }

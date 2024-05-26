@@ -10,7 +10,20 @@
 
     <body>
 
-        {% block content %}{% endblock %}
+        {% if login == False or login == None: %}
 
+            <div class="navbar">
+
+                DooDoo
+        
+            </div>
+
+        {% endif %}
+
+        <div class="bodydiv">
+
+            {% block content %}{% endblock %}
+
+        </div>
     </body>
 </html>

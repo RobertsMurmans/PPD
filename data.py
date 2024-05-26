@@ -25,7 +25,9 @@ def confirmPass(username, password):
 
     Password = cur.fetchall()
 
-    if Password == None:
+    print(Password)
+
+    if Password == None or Password == []:
         print(username, " does not exists")
         return False
     
