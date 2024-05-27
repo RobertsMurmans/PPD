@@ -33,6 +33,9 @@ def Login_page():
 
 @app.route('/homepage', methods=('GET', 'POST'))
 def Homepage():
+    if 'login' not in session or session['login'] == False:
+        session['login'] = False
+        return redirect('/login')
     return render_template('home.html')
 
 

@@ -1,6 +1,7 @@
 <html>
     <head>
 
+        <script src="{{url_for('static', filename='javascript.js')}}"></script>
         <meta charset="utf-8">
         <link href="{{url_for('static', filename='style.css')}}" rel="stylesheet" />
 
@@ -10,13 +11,42 @@
 
     <body>
 
-        {% if login == False or login == None: %}
+        {% if login != True: %}
 
-            <div class="navbar">
+            <nav class="navbar">
 
-                DooDoo
-        
-            </div>
+                <div class="navobj">
+                    
+                    <div class="dropdown">
+                        <button class="dropbtn">Sort</button>
+                        <div class="dropdown-content">
+                            <a id="sort-name" href="#name">Name</a>
+                            <a id="sort-type" href="#type">Type</a>
+                            <a id="sort-size" href="#size">Size</a>
+                            <a id="sort-date" href="#date">Upload date</a>
+                        </div>
+
+                    </div>
+
+                    <div class="navitem">
+
+                        <button class="dropbtn" id="swap">Upload</button>
+
+                    </div>
+
+                </div>
+
+                <div class="navobj">
+                    
+                    <div class="navitem">
+
+                        <button class="dropbtn" id="logout">Log out</button>
+
+                    </div>
+
+                </div>
+
+            </nav>
 
         {% endif %}
 
