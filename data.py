@@ -25,8 +25,6 @@ def confirmPass(username, password):
 
     Password = cur.fetchall()
 
-    print(Password)
-
     if Password == None or Password == []:
         print(username, " does not exists")
         return False
@@ -36,14 +34,13 @@ def confirmPass(username, password):
     cur.close()
     con.commit()
     con.close()
-
-    print("With password tried: ", password, " and ", Password)
     
     if password == Password:
         print("Connection success from", username)
         return True
     print("Connection fail from", username)
     return False
+
 
 def getID(username):
     con = connectToSQL()
@@ -57,4 +54,22 @@ def getID(username):
     con.commit()
     con.close()
 
-    return userID
+    return userID[0]
+
+
+def upload(path, filename, userID, filetype):
+    print(path, filename, userID, filetype)
+
+    con = connectToSQL()
+    cur = con.cursor()
+
+    cur.execute("INSERT INTO Files (FileAdress, FileName, CreatorID, FileType) VALUES (%s, %s, %s, %s)",
+                (path, filename, userID, filetype) )
+    
+    con.commit()
+
+    cur.close()
+    con.close()
+
+    return 1
+

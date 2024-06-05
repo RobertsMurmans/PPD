@@ -3,10 +3,12 @@ from data import *
 import os
 from dotenv import load_dotenv
 
+
 load_dotenv()
 
 app = Flask('app')
 app.secret_key = os.getenv('Key')
+app.config['FILE_UPLOAD'] = 'C:/Users/Fark/Documents/GitHub/PPD/static'
 
 
 @app.route('/')
@@ -36,7 +38,34 @@ def Homepage():
     if 'login' not in session or session['login'] == False:
         session['login'] = False
         return redirect('/login')
-    return render_template('home.html')
+    if request.method == 'POST':
+        redirect("/")
+    return render_template('home.html', swap="Upload", swapLink="/upload")
+
+
+@app.route('/upload', methods=('GET', 'POST'))
+def UploadPage():
+    if 'login' not in session or session['login'] == False:
+        session['login'] = False
+        return redirect('/login')
+    
+    if request.method == 'POST':
+        file = request.files['file']
+        if file.filename == '':
+            print("Invalid filename")
+            return redirect(request.url)
+        basedir = os.path.abspath(os.path.dirname(__file__))
+        file.save(os.path.join(basedir, app.config['FILE_UPLOAD'], file.filename))
+        upload(os.path.join(basedir, app.config['FILE_UPLOAD'], file.filename), file.name, session['id'], file.filename)
+
+    return render_template('upload.html', swap="Home", swapLink="/homepage")
+
+
+
+@app.route('/logout', methods=('GET', 'POST'))
+def LogOut():
+    session['login'] = False
+    return redirect('/')
 
 
 app.run(host='0.0.0.0', port=81)

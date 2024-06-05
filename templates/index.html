@@ -17,8 +17,8 @@
 
                 <div class="navobj">
                     
-                    <div class="dropdown">
-                        <button class="dropbtn">Sort</button>
+                    <div class="navitem sort">
+                        <a class="sort navbutton">Sort</a>
                         <div class="dropdown-content">
                             <a id="sort-name" href="#name">Name</a>
                             <a id="sort-type" href="#type">Type</a>
@@ -30,7 +30,21 @@
 
                     <div class="navitem">
 
-                        <button class="dropbtn" id="swap">Upload</button>
+                        <a class="navbutton swap" href={{swapLink}}>{{swap}}</a>
+
+                    </div>
+
+                </div>
+
+                <div class="navobj">
+
+                    <div class="navitem">
+
+                        <button type="submit" class="navbutton section delete">Delete</a>
+                            
+                        <button type="submit" class="navbutton section move">Move</a>
+                        
+                        <button type="submit" class="navbutton section share">Share</a>
 
                     </div>
 
@@ -40,7 +54,7 @@
                     
                     <div class="navitem">
 
-                        <button class="dropbtn" id="logout">Log out</button>
+                        <a class="navbutton logout" href="/logout">Log out</a>
 
                     </div>
 

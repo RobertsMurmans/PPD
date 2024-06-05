@@ -17,7 +17,7 @@
                 Input your ID here:
             </p> 
 
-            <input type="user_ID" id="user_ID" name="user_ID" class="inputfield">
+            <input type="user_ID" id="user_ID" name="user_ID" class="inputfield" required>
 
         </div>
 
@@ -27,7 +27,7 @@
                 Input your password here:
             </p> 
                 
-            <input type="password" id="password" name="password" class="inputfield">
+            <input type="password" id="password" name="password" class="inputfield" required>
 
         </div>
 
@@ -41,11 +41,8 @@
             </div>
         {% endif %}
 
-        <div class="inputdiv">
-
-            <input class="submitLogin" type="submit" value="Log In">
+        <input type="submit" value="Login">
             
-        </div>
 
     </form>
     

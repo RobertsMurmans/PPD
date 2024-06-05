@@ -1,0 +1,22 @@
+{%extends 'index.html'%}
+
+{% block title %}Upload{% endblock %}
+
+
+{% block content %}
+
+<div class="upload-content">
+
+    <h1 class="title">Upload your files here!</h1>
+
+    <form id="Upload" method="post" enctype="multipart/form-data">
+        
+        <input type="file" name="file" autocomplete="off" required>
+
+        <input type="submit" value="Upload">
+
+    </form>
+
+</div>
+
+{% endblock %}
