@@ -50,13 +50,19 @@ def UploadPage():
         return redirect('/login')
     
     if request.method == 'POST':
-        file = request.files['file']
-        if file.filename == '':
-            print("Invalid filename")
-            return redirect(request.url)
-        basedir = os.path.abspath(os.path.dirname(__file__))
-        file.save(os.path.join(basedir, app.config['FILE_UPLOAD'], file.filename))
-        upload(os.path.join(basedir, app.config['FILE_UPLOAD'], file.filename), file.name, session['id'], file.filename)
+        try:
+            file = request.files['file']
+            if file.filename == '':
+                print("Invalid filename")
+                return redirect(request.url)
+            basedir = os.path.abspath(os.path.dirname(__file__))
+            file.save(os.path.join(basedir, app.config['FILE_UPLOAD'], file.filename))
+            upload(os.path.join(basedir, app.config['FILE_UPLOAD'], file.filename), file.name, session['id'], file.filename)
+        except TypeError:
+            print(TypeError)
+            return redirect("/")
+        else:
+            return redirect("/homepage")
 
     return render_template('upload.html', swap="Home", swapLink="/homepage")
 

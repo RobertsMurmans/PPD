@@ -58,8 +58,6 @@ def getID(username):
 
 
 def upload(path, filename, userID, filetype):
-    print(path, filename, userID, filetype)
-
     con = connectToSQL()
     cur = con.cursor()
 
