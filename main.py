@@ -13,6 +13,7 @@ app.config['FILE_UPLOAD'] = 'C:/Users/Fark/Documents/GitHub/PPD/static'
 
 @app.route('/')
 def Index_page():
+    session['login'] = True
     if 'login' not in session or session['login'] == False:
         session['login'] = False
         return redirect('/login')
@@ -39,7 +40,7 @@ def Homepage():
         session['login'] = False
         return redirect('/login')
     if request.method == 'POST':
-        redirect("/")
+        return redirect("/")
     return render_template('home.html', swap="Upload", swapLink="/upload")
 
 
@@ -65,7 +66,6 @@ def UploadPage():
             return redirect("/homepage")
 
     return render_template('upload.html', swap="Home", swapLink="/homepage")
-
 
 
 @app.route('/logout', methods=('GET', 'POST'))

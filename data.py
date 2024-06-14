@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-adress = os.getenv('DB_Adress')
+# adress = os.getenv('DB_Adress')
 host = os.getenv('DB_Host')
 port = os.getenv('DB_Port')
 name = os.getenv('DB_Name')
@@ -71,3 +71,19 @@ def upload(path, filename, userID, filetype):
 
     return 1
 
+
+def getFilesOfUser(userID):
+    con = connectToSQL()
+    cur = con.cursor()
+    
+    cur.execute("""
+                    SELECT * FROM Files WHERE CreatorID = %s
+                """,
+                (userID, ))
+    
+    userFiles = cur.fetchall()
+
+    cur.close()
+    con.close()
+    
+    return userFiles
