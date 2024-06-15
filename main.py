@@ -8,7 +8,7 @@ load_dotenv()
 
 app = Flask('app')
 app.secret_key = os.getenv('Key')
-app.config['FILE_UPLOAD'] = 'C:/Users/Fark/Documents/GitHub/PPD/filers'
+app.config['FILE_UPLOAD'] = 'C:/Users/Fark/Documents/GitHub/PPD/files'
 
 
 @app.route('/')
@@ -70,6 +70,8 @@ def UploadPage():
 @app.route('/logout', methods=('GET', 'POST'))
 def LogOut():
     session['login'] = False
+    session['id'] = 0
+    session['username'] = ""
     return redirect('/')
 
 
