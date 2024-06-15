@@ -8,12 +8,11 @@ load_dotenv()
 
 app = Flask('app')
 app.secret_key = os.getenv('Key')
-app.config['FILE_UPLOAD'] = 'C:/Users/Fark/Documents/GitHub/PPD/static'
+app.config['FILE_UPLOAD'] = 'C:/Users/Fark/Documents/GitHub/PPD/filers'
 
 
 @app.route('/')
 def Index_page():
-    session['login'] = True
     if 'login' not in session or session['login'] == False:
         session['login'] = False
         return redirect('/login')
